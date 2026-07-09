@@ -39,6 +39,19 @@ npm run build    # production build into dist/
 npm run preview  # preview the production build
 ```
 
+## Deployment (GitHub Pages)
+
+The app is served from a project sub-path, so `vite.config.js` sets `base: '/PersonaTest/'`
+(override with the `BASE_PATH` env var if the repository is renamed).
+
+Deployment is automated by [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml): every push
+to `main` builds the project and publishes `dist/` to GitHub Pages. A `404.html` copy and a
+`.nojekyll` marker are added so the SPA loads correctly and Jekyll doesn't strip files.
+
+**One-time setup:** in the repository, go to **Settings → Pages → Build and deployment** and set
+**Source** to **GitHub Actions**. After that, the site is available at
+<https://nizovtsevanv-hub.github.io/PersonaTest/>.
+
 ## Project structure
 
 ```
